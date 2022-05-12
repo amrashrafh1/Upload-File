@@ -20,6 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::middleware('auth')->group(function () {
+    
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
@@ -38,6 +40,7 @@ Route::get('albums/{id}/move/photos', [MovePhotoController::class, 'move'])->nam
 
 Route::post('albums/{id}/move/photos', [MovePhotoController::class, 'delete_and_move'])->name('delete_and_move');
 
-
+    
+}); 
 
 require __DIR__.'/auth.php';
