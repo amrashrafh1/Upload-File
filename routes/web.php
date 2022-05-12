@@ -21,10 +21,10 @@ Route::get('/', function () {
 });
 
 Route::middleware('auth')->group(function () {
-    
+
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->name('dashboard');
 
 Route::resource('albums', AlbumController::class);
 
